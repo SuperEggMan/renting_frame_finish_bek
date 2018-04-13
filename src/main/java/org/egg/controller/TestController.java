@@ -1,6 +1,5 @@
 package org.egg.controller;
 
-import org.apache.ibatis.io.ResolverUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,8 +17,12 @@ public class TestController {
     @Value("${test}")
     private String TEST;
     @RequestMapping("/")
-    @ResponseBody
     String home() {
+        return "test";
+    }
+    @RequestMapping("/test")
+    @ResponseBody
+    String test() {
         System.out.println(TEST);
         return "Hello World!";
     }
